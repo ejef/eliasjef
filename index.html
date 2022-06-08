@@ -81,15 +81,175 @@
           <p>Os gráficos de linhas costumam ser usados para mostrar dados contínuos, ou seja, que não podem ser contados em números inteiros.</p>
         </div>
 
-        <!--  Terceiro serviço -->
+<!--  CONTATO -->
         <div class="service">
           <h3>Contato: </h3>
           <p>elias.jardelfernandes@hotmail.com</p>
           <p><a href="https://www.linkedin.com/in/elias-jef/"><img src="images/linkedin.svg" alt="Linkedin" style="margin-top: 40px; width: 60px; height: 60px;"/></a></p>
         </div>
+    </section>
+    
+
+<!--  GRAFICO DE PIZZA -->
+<section id="our-services">
+      <div class="section-header">
+        <h2 class="section-title" style="margin-top: -120px" >Exemplos de Gráfico de Pizza</h2>
+        <hr>
+      </div>
+         <!--  primeiro exemplo -->
+        <div class="service" style="margin-left: 20px;">
+          <h3 style="margin-left:190px; margin-bottom: 10px">Exemplo 1:</h3>
+          <head>
+          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+          <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+            ['Classe', 'Porcentagem'],
+            ['Classe A', 5],
+            ['Classe B', 23],
+            ['Classe C', 40],
+            ['Classe D', 32]
+            ]);
+
+            var options = {
+            title: 'Classe Social'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+          }
+        </script>
+      </head>
+    <body>
+    <div id="piechart" style="width: 500px; height: 400px;"></div>
+  </body>
+        </div>
       </div>
     </section>
+
+
+
+<!--  GRAFICO DE BARRA -->
+    <section id="our-services">
+      <div class="section-header">
+        <h2 class="section-title" style="margin-top: -120px" >Exemplos de Gráfico de Barra</h2>
+        <hr>
+      </div>
+         <!--  primeiro exemplo -->
+        <div class="service" style="margin-left: 20px;">
+          <h3 style="margin-left:190px; margin-bottom: 10px">Exemplo 1:</h3>
+          <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ['Classe', 'Porcentagem'],
+            ['Classe A', 5],
+            ['Classe B', 23],
+            ['Classe C', 40],
+            ['Classe D', 32]
+        ]);
+
+        var options = {
+          title: 'Distribuição de Classes Sociais',
+          width: 500,
+          legend: { position: 'none' },
+          chart: { title: 'Distribuição de Classes Sociais',
+                   subtitle: 'porcentagem por classe' },
+          bars: 'vertical', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'porcentagem'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="top_x_div" style="width: 500px; height: 400px;"></div>
+  </body>
+    </section>
+
+
+
+<!--  GRAFICO DE LINHA -->
+    <section id="our-services">
+      <div class="section-header">
+        <h2 class="section-title" style="margin-top: -120px" >Exemplos de Gráfico de Linha</h2>
+        <hr>
+      </div>
+         <!--  primeiro exemplo -->
+        <div class="service" style="margin-left: 20px;">
+          <h3 style="margin-left:190px; margin-bottom: 10px">Exemplo 1:</h3>
+          <head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Mês');
+      data.addColumn('number', 'Vacinados');
+      data.addColumn('number', 'Óbitos');
+      data.addColumn('number', 'Total de Casos');
+
+      data.addRows([
+        [1,  4200, 5.6, 376],
+        [2,  4400, 5.9, 434],
+        [3,  4600, 6.1, 488],
+        [4,  4700, 6.22, 513],
+        [5,  4750, 6.26, 530],
+        [6,  4770, 6.3, 532]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Casos de Covid 2022',
+          subtitle: 'em milhões de pessoas'
+
+
+        },
+        width: 500,
+        height: 400,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+</head>
+<body>
+  <div id="line_top_x"></div>
+</body>
+        </div>
+      </div>
+    </section>
+
+
+
   </main>
 </body>
-  <p style="text-align: center; margin-bottom: 20px;"><span style="font-size:13px">Copyright &copy; 2022&nbsp;Elias&nbsp;JEF todos os direitos reservados.</span></p>
+
+
+  <p style="text-align: center; margin-top: -120px;margin-bottom: 20px;"><span style="font-size:13px">Copyright &copy; 2022&nbsp;Elias&nbsp;JEF todos os direitos reservados.</span></p>
+
+
+
 </html>
