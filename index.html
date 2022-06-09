@@ -30,7 +30,7 @@
   <main>
     <section id="main-banner">
       
-      <div class="banner-content">
+      <div class="banner-content" style="margin-top: -50px">
         <h1>Dashboards</h1>
         
         <p>Modelos de Dashboards para análise e
@@ -45,7 +45,7 @@
     </section>
 
     <section id="our-services">
-      <div class="section-header">
+      <div class="section-header" style="margin-top: -120px">
         <h2 class="section-title">Tipos de Vizualizações</h2>
         <hr>
 
@@ -81,12 +81,7 @@
           <p>Os gráficos de linhas costumam ser usados para mostrar dados contínuos, ou seja, que não podem ser contados em números inteiros.</p>
         </div>
 
-<!--  CONTATO -->
-        <div class="service">
-          <h3>Contato: </h3>
-          <p>elias.jardelfernandes@hotmail.com</p>
-          <p><a href="https://www.linkedin.com/in/elias-jef/"><img src="images/linkedin.svg" alt="Linkedin" style="margin-top: 40px; width: 60px; height: 60px;"/></a></p>
-        </div>
+
     </section>
     
 
@@ -96,9 +91,12 @@
         <h2 class="section-title" style="margin-top: -120px" >Exemplos de Gráfico de Pizza</h2>
         <hr>
       </div>
+
+
          <!--  primeiro exemplo -->
-        <div class="service" style="margin-left: 20px;">
-          <h3 style="margin-left:190px; margin-bottom: 10px">Exemplo 1:</h3>
+        <div class="service">
+          <h3 style="margin-left:40px; margin-bottom: -24px">Gráfico de Classes Sociais (2d)</h3>
+          <h3 style="margin-left:730px; margin-bottom: 10px">Gráfico de Classes Sociais (3d)</h3>
           <head>
           <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
           <script type="text/javascript">
@@ -122,10 +120,40 @@
         </script>
       </head>
     <body>
-    <div id="piechart" style="width: 500px; height: 400px;"></div>
+    <div id="piechart" style="width: 650px; height: 400px;"></div>
+  </body>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Classe', 'Porcentagem'],
+            ['Classe A', 5],
+            ['Classe B', 23],
+            ['Classe C', 40],
+            ['Classe D', 32]
+        ]);
+
+        var options = {
+          title: 'Classe Social',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart_3d" style="width: 650px; height: 400px; margin-left: 690px; margin-top: -400px;"></div>
   </body>
         </div>
       </div>
+
+
+
     </section>
 
 
@@ -137,8 +165,9 @@
         <hr>
       </div>
          <!--  primeiro exemplo -->
-        <div class="service" style="margin-left: 20px;">
-          <h3 style="margin-left:190px; margin-bottom: 10px">Exemplo 1:</h3>
+        <div class="service">
+          <h3 style="margin-left:40px; margin-bottom: -24px">Distribuição de Classes Sociais (vertical)</h3>
+          <h3 style="margin-left:730px; margin-bottom: 10px">Distribuição de Classes Sociais (horizontal)</h3>
           <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -148,7 +177,7 @@
       function drawStuff() {
         var data = new google.visualization.arrayToDataTable([
             ['Classe', 'Porcentagem'],
-            ['Classe A', 5],
+            ['Classe A', 5 ],
             ['Classe B', 23],
             ['Classe C', 40],
             ['Classe D', 32]
@@ -156,14 +185,13 @@
 
         var options = {
           title: 'Distribuição de Classes Sociais',
-          width: 500,
+          width: 650,
           legend: { position: 'none' },
-          chart: { title: 'Distribuição de Classes Sociais',
-                   subtitle: 'porcentagem por classe' },
-          bars: 'vertical', // Required for Material Bar Charts.
+          chart: { title: '\n' },
+          bars: 'vertical',
           axes: {
             x: {
-              0: { side: 'top', label: 'porcentagem'} // Top x-axis.
+              0: { side: 'top', label: 'porcentagem'}
             }
           },
           bar: { groupWidth: "90%" }
@@ -175,8 +203,40 @@
     </script>
   </head>
   <body>
-    <div id="top_x_div" style="width: 500px; height: 400px;"></div>
+    <div id="top_x_div" style="width: 650px; height: 400px;"></div>
   </body>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Classe", "Porcentagem", { role: "style" } ],
+        ["Classe A", 5, "color: #e5e4e2"],
+        ["Classe B", 23, "gold"],
+        ["Classe C", 40, "silver"],
+        ["Classe D", 32, "#b87333"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "\n",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" }
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+<div id="barchart_values" style="width: 650px; height: 400px; margin-left: 690px; margin-top: -400px;"></div>
     </section>
 
 
@@ -189,7 +249,8 @@
       </div>
          <!--  primeiro exemplo -->
         <div class="service" style="margin-left: 20px;">
-          <h3 style="margin-left:190px; margin-bottom: 10px">Exemplo 1:</h3>
+          <h3 style="margin-left:40px; margin-bottom: -24px">Relatório de Covid</h3>
+          <h3 style="margin-left:730px; margin-bottom: 10px">Exemplo 2 ?????</h3>
           <head>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -215,12 +276,11 @@
 
       var options = {
         chart: {
-          title: 'Casos de Covid 2022',
           subtitle: 'em milhões de pessoas'
 
 
         },
-        width: 500,
+        width: 650,
         height: 400,
         axes: {
           x: {
@@ -238,11 +298,73 @@
 <body>
   <div id="line_top_x"></div>
 </body>
+
+<head>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  title: {
+    text: "Teste",
+    markerColor: "#4F81BC"
+
+  },
+  axisX: {
+    minimum: new Date(2015, 01, 25),
+    maximum: new Date(2017, 02, 15),
+    valueFormatString: "MMM YY"
+  },
+  axisY: {
+    title: "Numero de ",
+    titleFontColor: "#4F81BC",
+    includeZero: true,
+    suffix: "mn"
+  },
+  data: [{
+    indexLabelFontColor: "darkSlateGray",
+    name: "views",
+    type: "area",
+    yValueFormatString: "#,##0.0mn",
+    dataPoints: [
+      { x: new Date(2015, 02, 1), y: 74.4, label: "Q1-2015" },
+      { x: new Date(2015, 05, 1), y: 61.1, label: "Q2-2015" },
+      { x: new Date(2015, 08, 1), y: 47.0, label: "Q3-2015" },
+      { x: new Date(2015, 11, 1), y: 48.0, label: "Q4-2015" },
+      { x: new Date(2016, 02, 1), y: 74.8, label: "Q1-2016" },
+      { x: new Date(2016, 05, 1), y: 51.1, label: "Q2-2016" },
+      { x: new Date(2016, 08, 1), y: 40.4, label: "Q3-2016" },
+      { x: new Date(2016, 11, 1), y: 45.5, label: "Q4-2016" },
+      { x: new Date(2017, 02, 1), y: 78.3, label: "Q1-2017", indexLabel: "Highest", markerColor: "red" }
+    ]
+  }]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="width: 650px; height: 400px;margin-left: 690px; margin-top: -400px"></div>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
         </div>
       </div>
     </section>
 
+<section id="our-services">
+      <div class="section-header" style="margin-top: -160px">
+      </div>
+      <div class="services" >
+<!-- CONTATO -->
+        <div class="service">
+          <h3>Contato: </h3>
+          <p style="margin-left: 83px; margin-top: -43px">elias.jardelfernandes@hotmail.com</p>
+          <p><a href="https://www.linkedin.com/in/elias-jef/"><img src="images/linkedin.svg" alt="Linkedin" style="margin-top: 30px; width: 60px; height: 60px;"/></a></p>
+        </div>
+        </div>
 
+    </section>
 
   </main>
 </body>
