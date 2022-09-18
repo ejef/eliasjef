@@ -136,16 +136,26 @@ main {
   margin: 17px;
   padding: 40px;
   border-radius: 20px;
-
   flex: 1 1 400px;
 }
 
-#our-services .services .service img {
-  margin-bottom: 22px;
+#our-services .services .service img{
+  transition: all 0.5s;
+  cursor: pointer;
 }
+
+#our-services .services .service img:hover{
+  -webkit-transform: scale(1.07);
+    transform: scale(1.07);
+    -webkit-filter: drop-shadow(12px 10px 4px rgba(92, 76, 57, 0.925));
+    filter: drop-shadow(12px 10px 4px rgba(92, 76, 57, 0.925));
+
+}
+
 
 #our-services .services .service h3 {
   text-align: center;
+  margin-top: 25px;
   margin-bottom: 22px;
 }
 
@@ -157,6 +167,21 @@ main {
 
 /* Breakpoint de 1400px: menor do que 1400px */
 @media screen and (max-width: 1400px) {
+  #navbar {
+    max-width: auto;
+    width: 90%;
+  }
+
+  main {
+    max-width: auto;
+    width: 90%;
+  }
+}
+
+
+
+/* Breakpoint de 1400px: menor do que 1400px */
+@media screen and (max-width: 1440px) {
   #navbar {
     max-width: auto;
     width: 90%;
