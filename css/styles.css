@@ -51,20 +51,20 @@ main {
 }
 
 #main-banner .banner-content {
-  padding-top: 100px;
-  width: 450px;
+  padding-top: 80px;
+  width: 500px;
 }
 
 #main-banner .banner-content h1 {
-  font-size: 48px;
+  font-size: 38px;
   margin-bottom: 20px;
 }
 
 #main-banner .banner-content p {
-  font-size: 21px;
-  font-weight: 300;
-  color: #7D7987;
-  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 100;
+  color: #58575c;
+  margin-bottom: 10px;
 }
 
 #main-banner .banner-content a {
@@ -121,7 +121,7 @@ main {
 #our-services .section-header .subtitle {
   margin-top: 26px;
   font-size: 18px;
-  color: #7D7987;
+  color: #58575c;
   font-weight: 300;
 }
 
